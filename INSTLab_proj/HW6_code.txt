@@ -1,0 +1,130 @@
+1.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = [49.3,50.1,48.9,49.2,49.3,50.5,49.9,49.2,49.8,50.2]
+Reading = np.linspace(1,10,10)
+
+plt.hist(x)
+plt.show()
+
+print(Reading)
+
+
+OUTPUT:
+
+
+5. 
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = [49.3,50.1,48.9,49.2,49.3,50.5,49.9,49.2,49.8,50.2]
+Reading = np.linspace(1,10,10)
+
+val,count = np.unique(x,return_counts=True)
+
+print('Mean: ', np.mean(x))
+print('Median: ', np.median(x))
+print('Mode: ', val[np.argmax(count)])
+print('Standard Deviation: ', np.std(x))
+
+
+OUTPUT:
+Mean:  49.64
+Median:  49.55
+Mode:  49.2
+Standard Deviation:  0.5023942674832191
+
+
+79.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+T = np.array([20,30,40,50,60,75,100])
+V = np.array([1.02,1.53,2.05,2.55,3.07,3.56,4.05])
+
+coeff = np.polyfit(T,V,1)
+print(coeff)
+
+Ttrend = np.linspace(20,100,1000)
+Vtrend = np.polyval(coeff,Ttrend)
+tilde = np.polyval(coeff,T)
+
+res = (V-tilde)**2
+
+plt.plot(T,V,'b*')
+plt.plot(T,tilde,'g*')
+plt.plot(Ttrend,Vtrend,'r-')
+plt.grid()
+
+R2 = 1-np.sum(res) / np.sum((V-np.mean(V))**2)
+print(R2)
+
+
+OUTPUT:
+[0.03898425 0.45870079]
+0.9611681933065831
+
+80.
+
+import numpy as np
+import matplotlib.pyplot as plt
+T = np.array([20,30,40,50,60,75,100])
+V = np.array([1.02,1.53,2.05,2.55,3.07,3.56,4.05])
+
+points = np.linspace(20, 100, 1000)
+line = np.polyfit(T,V,1)
+line_fit = np.polyval(line,points)
+
+plt.plot(T,V,'b*')
+plt.plot(points,line_fit,'r-')
+
+
+OUTPUT:
+
+
+
+82.
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+lb = np.array([0,5,10,15,20,25,30])
+reading = np.array([-1.5, 4.34, 9.52, 14.64, 19.2, 26.6,29.55])
+
+plt.plot(lb,reading,'b*')
+
+fit_coeff = np.polyfit(lb,reading,1)
+
+lb_fit = np.linspace(0,30,1000)
+reading_fit = np.polyval(fit_coeff,lb_fit)
+
+tilde = np.polyval(fit_coeff,lb)
+res = (reading-tilde)**2
+R2 = 1-np.sum(res) / np.sum((reading-np.mean(reading))**2)
+print(R2)
+plt.plot(lb_fit,reading_fit,'r-')
+
+
+OUTPUT:
+0.9954868299686415
+
+90.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Vol = np.array([0.01,0.115,0.29,0.48,0.59,0.81,0.88,1.02,1.12,1.325,1.4])
+Vel = np.array([0.07,0.08,0.11,0.135, 0.145,0.185,0.19,0.22,0.24,0.285,0.295])
+
+coeff = np.polyfit(Vol,Vel,2)
+print(coeff)
+
+OUTPUT:
+[0.03725883 0.10999103 0.06984071]
+
