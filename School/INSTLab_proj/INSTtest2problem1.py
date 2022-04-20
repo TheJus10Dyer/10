@@ -4,6 +4,7 @@ Created on Tue Apr 19 12:53:30 2022
 
 @author: Justin
 """
+##EDIT
 ##Instrumentation Assesment 2 Problem 1
 
 ##Import needed modules
