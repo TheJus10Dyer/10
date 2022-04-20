@@ -6,3 +6,5 @@ Created on Tue Apr 19 14:06:17 2022
 """
 
 ##Instrumentation Assesment 2 Problem 2
+
+#Hey Jud
